@@ -1,4 +1,4 @@
-# MTPO / CoAgent (reimplemented from the paper; no public code)
+# MTPO / CoAgent (reimplemented from the CoAgent paper; no public code)
 
 How each rule of the published protocol is implemented on the shared harness:
 

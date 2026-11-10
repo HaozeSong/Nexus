@@ -8,7 +8,7 @@ python scripts/run_replay_study.py --engine sglang ... --benchmarks tau2long,wor
     [--repairs nexus,nexus_nodraft,nexus_undo,nexus_restart] [--windows 1,2,4,8,16,32] [--chunks 8,16,32,64,128,256]
     [--temperatures 0,0.25,0.5,0.75,1.0]
 
---repairs "" skips the repair comparison, so that the sensitivity sweeps can be run on their own (the paper runs them on tau2long).
+--repairs "" skips the repair comparison, so that the sensitivity sweeps can be run on their own (e.g. on tau2long only).
 
 Every configuration is one run_concurrency sweep at N=8 (results/replay_<benchmark>_<model>/...); the summary reads them all.
 Repairs are compared on the same workload and seeds; the "repair each invalidation from the same snapshot" comparison is

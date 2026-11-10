@@ -4,8 +4,8 @@ python scripts/run_short.py --engine sglang --base-url http://127.0.0.1:30001/v1
     --cells workbench,tpcc,tau2 --per-template 10 --protocols serial,naive,twopl,occ,mtpo,sbus,atomix,cordon,memtx,nexus \
     --trials 2 --parallel 4
 
---per-template K keeps the first K instances of every conflict template; K=10 gives the 48 WorkBench, 50 TPC-C (Micro-short) and
-50 tau2 (tau2-short) cells of the paper's short-conflict table. Without it every cell of the suites runs (48 + 90 + 200).
+--per-template K keeps the first K instances of every conflict template; K=10 gives 48 WorkBench, 50 TPC-C and 50 tau2 cells.
+Without it every cell of the suites runs (48 + 90 + 200).
 
 Writes results/short_<model>/trials.jsonl (one record per cell x protocol x trial, with transcripts) and summary.md; reruns resume.
 """

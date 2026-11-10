@@ -47,8 +47,8 @@ def load_all() -> dict[str, Cell]:
 
 def first_instances(cells: list[Cell], k: int) -> list[Cell]:
     """The first `k` instances of every conflict template, in registry order. The short suites instantiate each template on
-    several disjoint record sets (tpcc: 5 templates x 18, tau2: 5 x 40, workbench: 7 templates with 4-8 instances); the
-    paper's short-conflict evaluation uses 10 instances per template (48 WorkBench, 50 TPC-C and 50 tau2 cells)."""
+    several disjoint record sets (tpcc: 5 templates x 18, tau2: 5 x 40, workbench: 7 templates with 4-8 instances); k = 10
+    gives 48 WorkBench, 50 TPC-C and 50 tau2 cells."""
     seen: dict[tuple, int] = {}
     out = []
     for c in cells:
