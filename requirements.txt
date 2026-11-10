@@ -1,0 +1,5 @@
+# Installs this repository in place together with its dependencies (listed in pyproject.toml).
+-e .
+# The benchmarks reuse their authors' repositories under third_party/ (scripts/fetch_third_party.sh):
+#   tau2-bench: pip install -e third_party/tau2-bench
+#   WorkBench:  its requirements.txt

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-artifact"
+version = "0.1.0"
+description = "Nexus: a transaction-management layer for concurrent LLM agents (anchored replay, forward validation, write intents)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+    # harness: protocols, benchmarks, scripted tests, simulated engine
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "pydantic>=2.0",
+    "requests>=2.31",
+    "openai>=1.30",
+    "matplotlib>=3.8",
+    # token-level SGLang client (nexus/engine/sglang_native.py): chat template and tokenizer of the served model
+    "transformers>=4.44",
+]
+
+[project.optional-dependencies]
+# scripts/profile_workloads.py reads the public TraceLab traces (scripts/fetch_third_party.sh traces)
+profiling = ["duckdb>=1.0"]
+
+# The repository is used in place (pip install -e .): nexus/paths.py locates third_party/ and results/ relative to the checkout.
+[tool.setuptools.packages.find]
+include = ["nexus*", "protocols*", "benchmarks*"]
+
+[tool.ruff]
+line-length = 130
+extend-exclude = ["third_party", "results"]
+
+[tool.ruff.lint]
+# correctness checks only; the code base keeps its own compact layout (several short statements per line, long data rows)
+select = ["F", "E4", "E9"]
